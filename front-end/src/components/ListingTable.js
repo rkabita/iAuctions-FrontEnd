@@ -56,6 +56,36 @@ function ListingTable(props) {
             <td></td></>            
         }
     }
+    return (
+<Table striped bordered hover>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>CatagoryId</th>
+      <th>UserId</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {listings.map((listing)=>{
+      return <tr key={listing.id}>
+          <td><Link to={`/listings/${listing.id}`}>{listing.id}</Link></td>
+          <td>{listing.title}</td>
+          <td>{listing.price}</td>
+          <td>{listing.description}</td>
+          <td>{listing.catagoryId}</td>
+          <td>{listing.userId}</td>
+          
+          {renderTags(listing.userId,listing.id)}
+      </tr>
+      
+  })}
+  </tbody>
+</Table>
+    );
 }
 
 export default ListingTable;

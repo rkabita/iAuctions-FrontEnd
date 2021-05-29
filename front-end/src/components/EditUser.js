@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {Form,Col,Button,Container} from "react-bootstrap"
 import {UpdateUser} from "../services/UsersService"
 import { toast } from 'react-toastify';
 import { useParams,useHistory } from 'react-router-dom'
@@ -33,7 +34,27 @@ function EditUser(props) {
       } 
     }
     
-    
+    return (
+<Container  style={{marginTop:20}}>
+        <Form onSubmit={handleSubmit} style={{alignSelf:"center",border:"2px solid #ccc",padding:10}}>
+        <Form.Row>
+          <Form.Group as={Col} controlId="formGridTitle">
+            <Form.Label>Email</Form.Label>
+            <Form.Control onChange={handleEmail} type="email" placeholder="Enter email" />
+          </Form.Group>
+          </Form.Row>
+          <Form.Row>
+          <Form.Group as={Col} controlId="formGridTitle">
+            <Form.Label>name</Form.Label>
+            <Form.Control onChange={handlePassword} type="passsword" placeholder="Enter password" />
+          </Form.Group>
+          </Form.Row>
+        <Button variant="primary" type="submit">
+          Update user
+        </Button>
+      </Form>
+</Container>
+    );
 }
 
 export default EditUser;

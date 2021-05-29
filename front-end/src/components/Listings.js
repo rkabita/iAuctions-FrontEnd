@@ -89,6 +89,19 @@ function Listings(props) {
        <Form.Control onChange={handleDescription} type="text" placeholder="Enter description" />
      </Form.Group>
    
+   
+       <Form.Group as={Col} controlId="formGridCatagory">
+         <Form.Label>Catagory (optional)</Form.Label>
+         <Form.Control as="select" onChange={handlechange} defaultValue="Choose...">
+           <option>none</option>
+           {catagories.map((cat)=>{
+             return  <option  key={cat.id} id={cat.id} value={cat.id}>{cat.name}</option>
+           })
+
+           }
+         </Form.Control>
+       </Form.Group>
+   
      <Button variant="primary" type="submit">
        Create New Listing
      </Button>

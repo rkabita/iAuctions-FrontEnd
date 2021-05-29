@@ -34,6 +34,20 @@ function Comments(props) {
         <Container fluid>
         <Card style={{ width: '100%',backgroundColor:"#F2F2F2" }}>
         <Card.Title style={{textAlign:"center"}}>Comments</Card.Title>
+        <ListGroup variant="flush">
+        {comments.map((comment)=>{
+            return <ListGroup.Item >
+                <label style={{fontWeight:"bold"}}>user : {comment.userId} </label>
+                <p> {comment.description}</p>
+            </ListGroup.Item>
+        })}   
+            <ListGroup.Item >
+            <Form inline onSubmit={handleSubmit}>
+                <FormControl onChange={handlecomment} style={{width:"100%"}} type="text" placeholder="Comment" className=" mr-sm-1" />
+                <Button style={{width:"100%"}} type="submit">Post</Button>
+            </Form>
+            </ListGroup.Item>
+        </ListGroup>
         </Card>      
         </Container>
     );
